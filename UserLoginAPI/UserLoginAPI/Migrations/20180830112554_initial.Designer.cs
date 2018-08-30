@@ -9,7 +9,7 @@ using UserLoginAPI.Models;
 namespace UserLoginAPI.Migrations
 {
     [DbContext(typeof(UserLoginAPIContext))]
-    [Migration("20180830072929_initial")]
+    [Migration("20180830112554_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace UserLoginAPI.Migrations
                     b.Property<string>("Password");
 
                     b.HasKey("UserID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("User");
                 });

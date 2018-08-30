@@ -23,6 +23,12 @@ namespace UserLoginAPI.Migrations
                 {
                     table.PrimaryKey("PK_User", x => x.UserID);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_Email",
+                table: "User",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

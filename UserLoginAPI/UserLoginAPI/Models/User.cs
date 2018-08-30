@@ -8,7 +8,6 @@ namespace UserLoginAPI.Models
 {
     public class User
     {
-
         public int UserID { get; set; }
         [Required]
         public string FirstName { get; set; }

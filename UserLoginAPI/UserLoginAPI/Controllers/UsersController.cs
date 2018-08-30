@@ -17,8 +17,8 @@ namespace UserLoginAPI.Controllers
     {
         private readonly UserLoginAPIContext _context;
 
-        private string Salt = "gj+oAMieIg+2B/eoxA31+w==";
-        private byte[] Saltbyte;
+        private readonly string Salt = "gj+oAMieIg+2B/eoxA31+w==";
+        private readonly byte[] Saltbyte;
 
         public UsersController(UserLoginAPIContext context)
         {
@@ -34,7 +34,7 @@ namespace UserLoginAPI.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetUser([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -43,6 +43,25 @@ namespace UserLoginAPI.Controllers
             }
 
             var user = await _context.User.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
+
+        // GET: api/Users/5
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetUserByEmail([FromRoute] string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _context.User.SingleOrDefaultAsync(x => x.Email == email);
 
             if (user == null)
             {
@@ -66,6 +85,17 @@ namespace UserLoginAPI.Controllers
                 return BadRequest();
             }
 
+            if (EmailChanged(id, user.Email))
+            {
+                if (EmailExists(user.Email))
+                {
+                    return BadRequest(error: "The emailid already exists");
+                }
+            }
+
+            string hashed = HashPassword(user.Password);
+            user.Password = hashed;
+            
             _context.Entry(user).State = EntityState.Modified;
 
             try
@@ -96,12 +126,13 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            password: user.Password,
-            salt: Saltbyte,
-            prf: KeyDerivationPrf.HMACSHA1,
-            iterationCount: 10000,
-            numBytesRequested: 256 / 8));
+            //bool emailexists = await _context.User.AnyAsync(x => x.Email == user.Email);
+            if(EmailExists(user.Email))
+            {
+                return BadRequest(error: "The email id already Exists");
+            }
+
+            string hashed = HashPassword(user.Password);
 
             user.Password = hashed;
 
@@ -135,6 +166,33 @@ namespace UserLoginAPI.Controllers
         private bool UserExists(int id)
         {
             return _context.User.Any(e => e.UserID == id);
+        }
+
+        private bool EmailExists(string email)
+        {
+            return _context.User.Any(x => x.Email == email);
+        }
+
+        private string HashPassword(string Password)
+        {
+            string hashpassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            password: Password,
+            salt: Saltbyte,
+            prf: KeyDerivationPrf.HMACSHA1,
+            iterationCount: 10000,
+            numBytesRequested: 256 / 8));
+
+            return hashpassword;
+        }
+
+        private bool EmailChanged(int id, string email)
+        {
+            var user = _context.User.AsNoTracking().SingleOrDefault(x => x.UserID == id);
+            if (user.Email != email)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

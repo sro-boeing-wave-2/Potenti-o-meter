@@ -13,6 +13,12 @@ namespace UserLoginAPI.Models
         {
         }
 
+        //This function checks if the email id already exists or not
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<User>(entity => entity.HasIndex(e => e.Email).IsUnique());
+        }
+
         public DbSet<UserLoginAPI.Models.User> User { get; set; }
     }
 }
