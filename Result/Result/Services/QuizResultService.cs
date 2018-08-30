@@ -26,11 +26,11 @@ namespace Result.Services
             return quiz;
         }
 
-        public async Task<Quizes> GetQuiz(int id)
+        public async Task<UserResults> GetUserResults(int userId)
         {
-            return await _context.Quizes.Find(quiz => quiz.QuizId == id).FirstOrDefaultAsync();
+            return await _context.userResults.Find(entry => entry.UserId == userId).FirstOrDefaultAsync();
         }
-        
 
+        
     }
 }

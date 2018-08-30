@@ -26,5 +26,16 @@ namespace Result.Data
                 return _database.GetCollection<Quizes>("Quizes");
             }
         }
+
+        public IMongoCollection<UserResults> userResults
+        {
+            get
+            {
+                return _database.GetCollection<UserResults>("UserResults");
+            }
+        }
+
+
+
     }
 }
