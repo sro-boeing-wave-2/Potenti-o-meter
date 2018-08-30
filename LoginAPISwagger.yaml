@@ -156,5 +156,23 @@ paths:
           type: array
           items:
             $ref: '#/definitions/User'
+        examples:
+          application/json: |-
+                {
+                  [
+                    {
+                      "UserId": 1,
+                      "Name": "John Doe",
+                      "Email": "johndoe@example.com",
+                      "Password": "john123"
+                    },
+                    {
+                      "UserId": 2,
+                      "Name": "Harvey Specter",
+                      "Email": "harveryspecter@specterlitt.com",
+                      "Password": "harvey567"
+                    },
+                  ]
+                }
       404:
         description: Not Found
