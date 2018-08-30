@@ -12,3 +12,17 @@ D:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.Assemb
 D:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.RazorTargetAssemblyInfo.cache
 D:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.dll
 D:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.pdb
+E:\workspace\Potenti-o-meter\Result\Result\bin\Debug\netcoreapp2.1\Result.deps.json
+E:\workspace\Potenti-o-meter\Result\Result\bin\Debug\netcoreapp2.1\Result.runtimeconfig.json
+E:\workspace\Potenti-o-meter\Result\Result\bin\Debug\netcoreapp2.1\Result.runtimeconfig.dev.json
+E:\workspace\Potenti-o-meter\Result\Result\bin\Debug\netcoreapp2.1\Result.dll
+E:\workspace\Potenti-o-meter\Result\Result\bin\Debug\netcoreapp2.1\Result.pdb
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.csprojAssemblyReference.cache
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.csproj.CoreCompileInputs.cache
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.RazorAssemblyInfo.cache
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.RazorAssemblyInfo.cs
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.AssemblyInfoInputs.cache
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.AssemblyInfo.cs
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.RazorTargetAssemblyInfo.cache
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.dll
+E:\workspace\Potenti-o-meter\Result\Result\obj\Debug\netcoreapp2.1\Result.pdb

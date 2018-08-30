@@ -1,0 +1,73 @@
+swagger: "2.0"
+info:
+  title: Potenti-o-Meter
+  description: Showing the result and average
+definitions:
+  UserResults:
+    type: object
+    required:
+      - userId
+      - domainName
+      - averageScore
+      - scores
+    properties:
+      userId:
+        type: integer
+        format: int32
+      domainName:
+        type: string
+      averageScore:
+        type: number
+        format: double
+      scores:
+        type: array
+        items:
+          type: number
+          format: double
+  Quizes:
+    type: object
+    required:
+      - quizId
+      - userId
+      - domainName
+      - score
+    properties:
+      quizId:
+        type: integer
+        format: int32
+      userId:
+        type: integer
+        format: int32
+      domainName:
+        type: string
+      score:
+        type: number
+        format: double
+        
+
+paths:
+  /userResults:
+    get:
+      description: Gets the details of the previous tests given for this domain as well as the average.
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserResults'
+        404:
+          description: NOT FOUND
+  /getQuizDetails:
+    post:
+      description: Update quiz details
+      responses:
+        201:
+          description: CREATED
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Quizes'
+        400:
+          description: BAD REQUEST    
+      
