@@ -1,0 +1,160 @@
+swagger: "2.0"
+info:
+  title: User Login API
+  description: This API provides access to insert, update and fetch data from User Database.
+  version: v1.0
+definitions:
+  User:
+    type: object
+    required:
+      - UserId
+      - Name
+      - Email
+      - Password
+    properties:
+      UserId:
+        type: integer
+      Name:
+        type: string
+      Email:
+        type: string
+      Password:
+        type: string
+paths:
+ /users:
+  get:
+    summary: Gets all users information.
+    produces:
+    - application/json
+    responses:
+      200:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+        examples:
+          application/json: |-
+                {
+                  [
+                    {
+                      "UserId": 1,
+                      "Name": "John Doe",
+                      "Email": "johndoe@example.com",
+                      "Password": "john123"
+                    },
+                    {
+                      "UserId": 2,
+                      "Name": "Harvey Specter",
+                      "Email": "harveryspecter@specterlitt.com",
+                      "Password": "harvey567"
+                    },
+                  ]
+                }
+      404:
+        description: Not Found
+  post:
+    summary: Adds a new user.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: array
+            items: 
+            $ref: '#/definitions/User'
+    responses:
+      201:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      400:
+        description: Bad Request
+
+ /users/{userId}:
+  get:
+    summary: Gets user information by ID.
+    parameters:
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: integer
+      description: User Id for the user whose information has to be fetched.
+    produces:
+    - application/json
+    responses:
+      200:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      400: 
+        description: Bad Request
+      404:
+        description: Not Found
+  put:
+    summary: Updates user information by ID.
+    parameters:
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: integer
+      description: User Id for the user whose information has to be fetched.
+    produces:
+    - application/json
+    responses:
+      200:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      400:
+        description: Bad Request
+      404:
+        description: Not Found
+  delete:
+    summary: Deletes user.
+    parameters:
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: integer
+      description: User Id for the user whose information has to be fetched.
+    produces:
+    - application/json
+    responses:
+      204: 
+        description: OK
+      400:
+        description: Bad Request
+      404:
+        description: Not Found
+      
+ /users/{email}:
+  get:
+    summary: Gets user information by email
+    parameters:
+    - in: path
+      name: email
+      required: true
+      schema:
+        type: string
+      description: email for the user whose information has to be fetched.
+    produces:
+    - application/json
+    responses:
+      200:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      404:
+        description: Not Found
