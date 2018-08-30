@@ -181,7 +181,6 @@ namespace UserLoginAPI.Controllers
             prf: KeyDerivationPrf.HMACSHA1,
             iterationCount: 10000,
             numBytesRequested: 256 / 8));
-
             return hashpassword;
         }
 
