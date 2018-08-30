@@ -1,0 +1,14 @@
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\bin\Debug\netcoreapp2.1\UserLoginAPI.deps.json
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\bin\Debug\netcoreapp2.1\UserLoginAPI.runtimeconfig.json
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\bin\Debug\netcoreapp2.1\UserLoginAPI.runtimeconfig.dev.json
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\bin\Debug\netcoreapp2.1\UserLoginAPI.dll
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.csprojAssemblyReference.cache
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.csproj.CoreCompileInputs.cache
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.RazorAssemblyInfo.cache
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.RazorAssemblyInfo.cs
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.AssemblyInfoInputs.cache
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.AssemblyInfo.cs
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.RazorTargetAssemblyInfo.cache
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\bin\Debug\netcoreapp2.1\UserLoginAPI.pdb
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.dll
+E:\Workspace\Potenti-o-meter\UserLoginAPI\UserLoginAPI\obj\Debug\netcoreapp2.1\UserLoginAPI.pdb
