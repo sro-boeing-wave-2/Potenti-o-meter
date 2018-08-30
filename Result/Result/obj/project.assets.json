@@ -12590,11 +12590,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
+      "projectUniqueName": "E:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
       "projectName": "Result",
-      "projectPath": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
+      "projectPath": "E:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\obj\\",
+      "outputPath": "E:\\workspace\\Potenti-o-meter\\Result\\Result\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
