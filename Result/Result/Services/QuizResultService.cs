@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using Result.Data;
 using Result.Models;
 using System;
@@ -21,7 +22,15 @@ namespace Result.Services
         public async Task<Quizes> AddQuiz(Quizes quiz)
         {
             await _context.Quizes.InsertOneAsync(quiz);
+
             return quiz;
         }
+
+        public async Task<Quizes> GetQuiz(int id)
+        {
+            return await _context.Quizes.Find(quiz => quiz.QuizId == id).FirstOrDefaultAsync();
+        }
+        
+
     }
 }

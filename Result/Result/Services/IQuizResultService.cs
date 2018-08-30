@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Result.Services
 {
-    interface IQuizResultService
+    public interface IQuizResultService
     {
         Task<Quizes> AddQuiz(Quizes quiz);
-        
+        Task<Quizes> GetQuiz(int id);
     }
 }
