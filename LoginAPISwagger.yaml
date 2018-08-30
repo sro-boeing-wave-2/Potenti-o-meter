@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   title: User Login API
   description: This API provides access to insert, update and fetch data from User Database.
-  version: v1.0
+  version: v1.1
 definitions:
   User:
     type: object
@@ -14,12 +14,17 @@ definitions:
     properties:
       UserId:
         type: integer
-      Name:
+      FirstName:
+        type: string
+      LastName:
         type: string
       Email:
         type: string
       Password:
         type: string
+      Contact:
+        type: integer
+        format: int64
 paths:
  /users:
   get:
@@ -39,15 +44,19 @@ paths:
                   [
                     {
                       "UserId": 1,
-                      "Name": "John Doe",
+                      "FirstName": "John",
+                      "LastName": "Doe",
                       "Email": "johndoe@example.com",
-                      "Password": "john123"
+                      "Password": "john123",
+                      "Contact": 1234567890
                     },
                     {
                       "UserId": 2,
-                      "Name": "Harvey Specter",
+                      "FirstName": "Harvey",
+                      "LastName": "Specter"
                       "Email": "harveryspecter@specterlitt.com",
-                      "Password": "harvey567"
+                      "Password": "harvey567",
+                      "Contact": 5769832123
                     },
                   ]
                 }
@@ -162,15 +171,19 @@ paths:
                   [
                     {
                       "UserId": 1,
-                      "Name": "John Doe",
+                      "FirstName": "John",
+                      "LastName": "Doe",
                       "Email": "johndoe@example.com",
-                      "Password": "john123"
+                      "Password": "john123",
+                      "Contact": 1234567890
                     },
                     {
                       "UserId": 2,
-                      "Name": "Harvey Specter",
+                      "FirstName": "Harvey",
+                      "LastName": "Specter"
                       "Email": "harveryspecter@specterlitt.com",
-                      "Password": "harvey567"
+                      "Password": "harvey567",
+                      "Contact": 5769832123
                     },
                   ]
                 }
