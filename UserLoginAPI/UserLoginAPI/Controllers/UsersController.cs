@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserLoginAPI.Models;
+using UserLoginAPI.Services;
 
 namespace UserLoginAPI.Controllers
 {
@@ -15,22 +16,23 @@ namespace UserLoginAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserLoginAPIContext _context;
+        private readonly IUsersControllerService _service;
 
-        private readonly string Salt = "gj+oAMieIg+2B/eoxA31+w==";
-        private readonly byte[] Saltbyte;
+        //private readonly string Salt = "gj+oAMieIg+2B/eoxA31+w==";
+        //private readonly byte[] Saltbyte;
 
-        public UsersController(UserLoginAPIContext context)
+        public UsersController(IUsersControllerService service)
         {
-            _context = context;
-            Saltbyte = Encoding.ASCII.GetBytes(Salt);
+            _service = service;
+            //Saltbyte = Encoding.ASCII.GetBytes(Salt);
         }
 
         // GET: api/Users
         [HttpGet]
         public IEnumerable<User> GetUser()
         {
-            return _context.User;
+            //return _context.User;
+            return _service.GetUserService();
         }
 
         // GET: api/Users/5
@@ -42,7 +44,7 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.FindAsync(id);
+            var user = await _service.GetUser(id);// _context.User.FindAsync(id);
 
             if (user == null)
             {
@@ -61,7 +63,7 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.SingleOrDefaultAsync(x => x.Email == email);
+            var user = await _service.GetUserByEmail(email);// await _context.User.SingleOrDefaultAsync(x => x.Email == email);
 
             if (user == null)
             {
@@ -95,12 +97,13 @@ namespace UserLoginAPI.Controllers
 
             string hashed = HashPassword(user.Password);
             user.Password = hashed;
-            
-            _context.Entry(user).State = EntityState.Modified;
+
+            //_context.Entry(user).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                //await _context.SaveChangesAsync();
+                await _service.PutUser(id, user);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -136,8 +139,10 @@ namespace UserLoginAPI.Controllers
 
             user.Password = hashed;
 
-            _context.User.Add(user);
-            await _context.SaveChangesAsync();
+            //_context.User.Add(user);
+            //await _context.SaveChangesAsync();
+
+            await _service.PostUser(user);
 
             return CreatedAtAction("GetUser", new { id = user.UserID }, user);
         }
@@ -151,47 +156,50 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.User.FindAsync(id);
+            var user = await _service.DeleteUser(id);// _context.User.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
+            //_context.User.Remove(user);
+            //await _context.SaveChangesAsync();
 
             return Ok(user);
         }
 
         private bool UserExists(int id)
         {
-            return _context.User.Any(e => e.UserID == id);
+            return _service.UserExists(id);// _context.User.Any(e => e.UserID == id);
         }
 
         private bool EmailExists(string email)
         {
-            return _context.User.Any(x => x.Email == email);
+            return _service.EmailExists(email);// _context.User.Any(x => x.Email == email);
         }
 
         private string HashPassword(string Password)
         {
-            string hashpassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            password: Password,
-            salt: Saltbyte,
-            prf: KeyDerivationPrf.HMACSHA1,
-            iterationCount: 10000,
-            numBytesRequested: 256 / 8));
-            return hashpassword;
+            return _service.HashPassword(Password);
+            //string hashpassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            //password: Password,
+            //salt: Saltbyte,
+            //prf: KeyDerivationPrf.HMACSHA1,
+            //iterationCount: 10000,
+            //numBytesRequested: 256 / 8));
+            //return hashpassword;
         }
 
         private bool EmailChanged(int id, string email)
         {
-            var user = _context.User.AsNoTracking().SingleOrDefault(x => x.UserID == id);
-            if (user.Email != email)
-            {
-                return true;
-            }
-            return false;
+
+            return _service.EmailChanged(id, email);
+            //var user = _context.User.AsNoTracking().SingleOrDefault(x => x.UserID == id);
+            //if (user.Email != email)
+            //{
+            //    return true;
+            //}
+            //return false;
         }
     }
 }

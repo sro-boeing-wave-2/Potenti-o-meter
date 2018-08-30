@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using UserLoginAPI.Models;
+using UserLoginAPI.Services;
 
 namespace UserLoginAPI
 {
@@ -28,6 +29,8 @@ namespace UserLoginAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IUsersControllerService, UsersControllerService>();
 
             services.AddDbContext<UserLoginAPIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("UserLoginAPIContext")));
