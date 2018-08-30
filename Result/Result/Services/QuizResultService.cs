@@ -28,7 +28,7 @@ namespace Result.Services
 
         public async Task<UserResults> GetUserResults(int userId)
         {
-            return await _context.userResults.Find(entry => entry.UserId == userId).FirstOrDefaultAsync();
+            return await _context.UserResults.Find(entry => entry.UserId == userId).FirstOrDefaultAsync();
         }
 
         

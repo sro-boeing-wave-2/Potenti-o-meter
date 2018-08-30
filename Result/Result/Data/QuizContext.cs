@@ -27,7 +27,7 @@ namespace Result.Data
             }
         }
 
-        public IMongoCollection<UserResults> userResults
+        public IMongoCollection<UserResults> UserResults
         {
             get
             {
