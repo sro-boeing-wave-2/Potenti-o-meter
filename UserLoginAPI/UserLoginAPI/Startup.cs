@@ -47,6 +47,12 @@ namespace UserLoginAPI
                     };
                 });
 
+            services.AddCors(
+            options => options.AddPolicy("AllowAccess",
+            builder => builder.WithOrigins("http://localhost:4200")
+            )
+            );
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddScoped<IUsersControllerService, UsersControllerService>();
@@ -66,7 +72,7 @@ namespace UserLoginAPI
             {
                 app.UseHsts();
             }
-
+            app.UseCors("AllowAccess");
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
