@@ -8,13 +8,18 @@ import { HomeComponent } from './home/home.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpModule} from '@angular/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     HomeComponent,
-    UserSignUpComponent
+    UserSignUpComponent,
+    DashboardComponent,
+    DashboardHeaderComponent
   ],
   entryComponents: [UserLoginComponent,UserSignUpComponent],
   imports: [
@@ -23,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule 
+    MatIconModule ,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
