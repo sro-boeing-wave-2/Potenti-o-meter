@@ -1,0 +1,22 @@
+mat-toolbar{
+  color: aliceblue;
+}
+
+#result
+{
+  display: block;
+  width: 100%;
+}
+
+#userResult {
+  width: 80%;
+  float: left;
+  text-align: center;
+}
+
+#userId
+{
+  text-align: center;
+  width: 20%;
+  float:left;
+}
