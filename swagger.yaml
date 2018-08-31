@@ -59,6 +59,15 @@ paths:
   /userResult:
     get:
       description: Gets the details of the previous tests given for this domain as well as the average.
+      parameters:
+      - in: query
+        name: userId
+        type: integer
+        description: userId of the user.
+      - in: query
+        name: domainName
+        type: string
+        description: domain name of the test given by the user
       responses:
         200:
           description: OK
