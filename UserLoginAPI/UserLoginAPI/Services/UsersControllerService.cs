@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using UserLoginAPI.Models;
 
 namespace UserLoginAPI.Services
 {
-    public class UsersControllerService: IUsersControllerService
+    public class UsersControllerService : IUsersControllerService
     {
         private readonly UserLoginAPIContext _context;
 
@@ -67,6 +70,47 @@ namespace UserLoginAPI.Services
             return user;
         }
 
+        public async Task<string> Login(string email, string password)
+        {
+            bool dbEmail = EmailExists(email);
+
+            if (dbEmail)
+            {
+                User user = await GetUserByEmail(email);
+                string hashpassword = HashPassword(password);
+                if (hashpassword == user.Password)
+                {
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@007"));
+                    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+                    var tokenOptions = new JwtSecurityToken(
+                        issuer: "https://localhost:44397",
+                        audience: "https://locahost:44397",
+                        claims: new List<Claim> {
+                            new Claim("UserID", user.UserID.ToString()),
+                            new Claim("FirstName", user.FirstName),
+                            new Claim("LastName", user.LastName),
+                            new Claim("Email", user.Email),
+                        },
+                        expires: DateTime.Now.AddHours(2),
+                        signingCredentials: signinCredentials
+                    );
+
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+
+                    return tokenString;
+                }
+                else
+                {
+                    return "Incorrect Password";
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public bool UserExists(int id)
         {
             return _context.User.Any(e => e.UserID == id);
@@ -97,6 +141,7 @@ namespace UserLoginAPI.Services
             }
             return false;
         }
+
     }
 
     public interface IUsersControllerService
@@ -107,6 +152,7 @@ namespace UserLoginAPI.Services
         Task<User> PutUser(int id, User user);
         Task<User> PostUser(User user);
         Task<User> DeleteUser(int id);
+        Task<string> Login(string email, string password);
         bool UserExists(int id);
         bool EmailExists(string email);
         string HashPassword(string Password);

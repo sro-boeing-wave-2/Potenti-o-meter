@@ -14,6 +14,7 @@ namespace UserLoginAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            //HttpContext.Response.Cookies.Append("Key", "MyValue");
             return new string[] { "value1", "value2" };
         }
 
