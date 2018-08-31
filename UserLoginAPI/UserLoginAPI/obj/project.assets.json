@@ -12225,11 +12225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\UserLoginAPI.csproj",
+      "projectUniqueName": "D:\\workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\UserLoginAPI.csproj",
       "projectName": "UserLoginAPI",
-      "projectPath": "E:\\Workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\UserLoginAPI.csproj",
+      "projectPath": "D:\\workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\UserLoginAPI.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\Workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\obj\\",
+      "outputPath": "D:\\workspace\\Potenti-o-meter\\UserLoginAPI\\UserLoginAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
