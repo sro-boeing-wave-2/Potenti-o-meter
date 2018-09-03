@@ -16,6 +16,5 @@ namespace Result.Models
         public string DomainName { get; set; }
         public double AverageScore { get; set; }
         public List<double> Scores { get; set; }
-
     }
 }
