@@ -2,3 +2,4 @@
 *.vs*
 bin/
 .cache
+Result/Result/obj/
