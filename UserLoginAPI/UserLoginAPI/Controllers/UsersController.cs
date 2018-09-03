@@ -114,7 +114,7 @@ namespace UserLoginAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Users/Register
         [HttpPost("Register")]
         public async Task<IActionResult> PostUser([FromBody] User user)
         {
@@ -136,7 +136,8 @@ namespace UserLoginAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.UserID }, user);
         }
 
-        [HttpPost("Login")]
+		// POST: api/Users/Login
+		[HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody]Login user)
         {
             if (user == null)
