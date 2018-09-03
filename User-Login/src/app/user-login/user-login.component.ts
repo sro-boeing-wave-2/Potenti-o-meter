@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray } from '@angular/forms';
 import { MatDialogRef,MatDialog } from '@angular/material';
 import{UserSignUpComponent } from '../user-sign-up/user-sign-up.component'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -11,7 +12,7 @@ import{UserSignUpComponent } from '../user-sign-up/user-sign-up.component'
 export class UserLoginComponent implements OnInit {
 
   constructor( private fb: FormBuilder,private dialog: MatDialog,
-    public dialogRef: MatDialogRef<UserLoginComponent>) { }
+    public dialogRef: MatDialogRef<UserLoginComponent>,private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,8 @@ export class UserLoginComponent implements OnInit {
     Password: ['']
   });
   onSubmit():void{
+    this.router.navigate(['home']);
+    this.Close();
   }
   Close(){
     this.dialogRef.close();

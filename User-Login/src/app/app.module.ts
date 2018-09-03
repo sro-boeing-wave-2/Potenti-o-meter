@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatButtonModule, MatCheckboxModule ,MatCardModule,MatIconModule,
-  MatToolbarModule,MatDialogModule, MatDialogRef} from '@angular/material';
+  MatToolbarModule,MatDialogModule, MatDialogRef,MatMenuModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
+import { AppRoutingModule } from './app-routing-module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule ,
-    HttpModule
+    HttpModule,
+    MatToolbarModule,
+    AppRoutingModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
