@@ -1,19 +1,4 @@
-Result/.vs
 .vscode
-
-#OS junk files
-
-
-#Visual studio files
-*.suo
-*.dtbcache
-*.ide-shm
-*.config
-*.dll
-*.cache
-*.pdb
-*.cache
-*.props
-*.json
-*.txt
-
+*.vs*
+bin/
+.cache
