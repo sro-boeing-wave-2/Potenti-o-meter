@@ -27,11 +27,7 @@ namespace Result.Data
             }
         }
 
-<<<<<<< Updated upstream
-        public IMongoCollection<UserResults> UserResults
-=======
         public IMongoCollection<UserResult> userResult
->>>>>>> Stashed changes
         {
             get
             {

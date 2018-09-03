@@ -12590,11 +12590,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "E:\\Potenti-o-meter\\Result\\Result\\Result.csproj",
       "projectName": "Result",
       "projectPath": "E:\\Potenti-o-meter\\Result\\Result\\Result.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "E:\\Potenti-o-meter\\Result\\Result\\obj\\",
+=======
+      "projectUniqueName": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
+      "projectName": "Result",
+      "projectPath": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\Result.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\workspace\\Potenti-o-meter\\Result\\Result\\obj\\",
+>>>>>>> ebc0c627e6b37f4f44ed8441f4aaf3938c90ce5a
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
