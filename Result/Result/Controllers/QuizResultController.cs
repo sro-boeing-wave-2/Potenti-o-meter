@@ -22,17 +22,34 @@ namespace Result.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostQuiz([FromBody] Quizes quiz)
+        public async Task<IActionResult> PostQuiz([FromBody] Quiz quiz)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _quizResultService.AddQuiz(quiz);
+            return Ok();
+        }
+
+        [HttpGet]
+       
+        public async Task<IActionResult> UserResultForGivenQuizAndDomain([FromQuery] int userId = 0,[FromQuery] string domainName="")
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _quizResultService.AddQuiz(quiz);
+            var userResult = await _quizResultService.GetUserResults(userId, domainName);
 
+            if(userResult == null)
+            {
+                return NotFound();
+            }
 
-            return Ok();
+            return Ok(userResult);
+
         }
         
     }
