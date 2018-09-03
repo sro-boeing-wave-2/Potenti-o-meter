@@ -46,6 +46,10 @@ namespace UserLoginAPI
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@007"))
                     };
                 });
+                //.AddCookie(options =>
+                //{
+                //    options.Cookie.Expiration = TimeSpan.FromHours(2);
+                //});
 
             services.AddCors(
             options => options.AddPolicy("AllowAccess",

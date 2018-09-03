@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
@@ -18,20 +20,15 @@ namespace UserLoginAPI.Controllers
     {
         private readonly IUsersControllerService _service;
 
-        //private readonly string Salt = "gj+oAMieIg+2B/eoxA31+w==";
-        //private readonly byte[] Saltbyte;
-
         public UsersController(IUsersControllerService service)
         {
             _service = service;
-            //Saltbyte = Encoding.ASCII.GetBytes(Salt);
         }
 
         // GET: api/Users
         [HttpGet]
         public IEnumerable<User> GetUser()
         {
-            //return _context.User;
             return _service.GetUserService();
         }
 
@@ -44,7 +41,7 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _service.GetUser(id);// _context.User.FindAsync(id);
+            var user = await _service.GetUser(id);
 
             if (user == null)
             {
@@ -54,7 +51,7 @@ namespace UserLoginAPI.Controllers
             return Ok(user);
         }
 
-        // GET: api/Users/5
+        // GET: api/Users/abcd
         [HttpGet("{email}")]
         public async Task<IActionResult> GetUserByEmail([FromRoute] string email)
         {
@@ -63,7 +60,7 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _service.GetUserByEmail(email);// await _context.User.SingleOrDefaultAsync(x => x.Email == email);
+            var user = await _service.GetUserByEmail(email);
 
             if (user == null)
             {
@@ -98,11 +95,8 @@ namespace UserLoginAPI.Controllers
             string hashed = HashPassword(user.Password);
             user.Password = hashed;
 
-            //_context.Entry(user).State = EntityState.Modified;
-
             try
             {
-                //await _context.SaveChangesAsync();
                 await _service.PutUser(id, user);
             }
             catch (DbUpdateConcurrencyException)
@@ -121,7 +115,7 @@ namespace UserLoginAPI.Controllers
         }
 
         // POST: api/Users
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<IActionResult> PostUser([FromBody] User user)
         {
             if (!ModelState.IsValid)
@@ -129,22 +123,43 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            //bool emailexists = await _context.User.AnyAsync(x => x.Email == user.Email);
             if(EmailExists(user.Email))
             {
                 return BadRequest(error: "The email id already Exists");
             }
 
             string hashed = HashPassword(user.Password);
-
             user.Password = hashed;
-
-            //_context.User.Add(user);
-            //await _context.SaveChangesAsync();
 
             await _service.PostUser(user);
 
             return CreatedAtAction("GetUser", new { id = user.UserID }, user);
+        }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody]Login user)
+        {
+            if (user == null)
+            {
+                return BadRequest("Invalid Request");
+            }
+
+            string tokenString = await _service.Login(user.Email, user.Password);
+            if(tokenString == "Incorrect Password")
+            {
+                return BadRequest(error: "Incorrect Password");
+            }
+            else if (tokenString == null)
+            {
+                return Unauthorized();
+            }
+            else
+            {
+                CookieOptions cookie = new CookieOptions();
+                cookie.Expires = DateTime.Now.AddHours(2);
+                HttpContext.Response.Cookies.Append("UserLoginAPItoken", tokenString, cookie);
+                return Ok(new { Token = tokenString });
+            }
         }
 
         // DELETE: api/Users/5
@@ -156,50 +171,34 @@ namespace UserLoginAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _service.DeleteUser(id);// _context.User.FindAsync(id);
+            var user = await _service.DeleteUser(id);
             if (user == null)
             {
                 return NotFound();
             }
-
-            //_context.User.Remove(user);
-            //await _context.SaveChangesAsync();
 
             return Ok(user);
         }
 
         private bool UserExists(int id)
         {
-            return _service.UserExists(id);// _context.User.Any(e => e.UserID == id);
+            return _service.UserExists(id);
         }
 
         private bool EmailExists(string email)
         {
-            return _service.EmailExists(email);// _context.User.Any(x => x.Email == email);
+            return _service.EmailExists(email);
         }
 
         private string HashPassword(string Password)
         {
             return _service.HashPassword(Password);
-            //string hashpassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            //password: Password,
-            //salt: Saltbyte,
-            //prf: KeyDerivationPrf.HMACSHA1,
-            //iterationCount: 10000,
-            //numBytesRequested: 256 / 8));
-            //return hashpassword;
         }
 
         private bool EmailChanged(int id, string email)
         {
 
             return _service.EmailChanged(id, email);
-            //var user = _context.User.AsNoTracking().SingleOrDefault(x => x.UserID == id);
-            //if (user.Email != email)
-            //{
-            //    return true;
-            //}
-            //return false;
         }
     }
 }
