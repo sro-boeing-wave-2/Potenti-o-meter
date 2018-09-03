@@ -30,65 +30,12 @@ namespace Result.Services
 
 
         public async Task<UserResult> GetUserResults(int userId, string domainName)
-<<<<<<< HEAD
         {
             return await _context.userResult.Find(entry => entry.UserId == userId && entry.DomainName == domainName).FirstOrDefaultAsync();
-=======
-        {
-            return await _context.userResult.Find(entry => entry.UserId == userId && entry.DomainName==domainName).FirstOrDefaultAsync();
-        }
-        
-        
-
-        public async void UpdateUserResults(Quiz quiz)
-        {
-<<<<<<< Updated upstream
-            return await _context.UserResults.Find(entry => entry.UserId == userId).FirstOrDefaultAsync();
-=======
-            int userId = quiz.UserId;
-            double newScore = quiz.Score;
-            string domainName = quiz.DomainName;
-           
-            var userResultsEntry = await _context.userResult.Find(entryy => entryy.UserId.Equals(userId) && entryy.DomainName.Equals(domainName)).FirstOrDefaultAsync();
-
-            if (userResultsEntry == null)
-            {
-                List<double> scores = new List<double>();
-                scores.Add(newScore);
-                UserResult userResults = new UserResult()
-                {
-                    UserId = userId,
-                    DomainName = quiz.DomainName,
-                    AverageScore = quiz.Score,
-                    Scores = scores,
-                    
-                };
-                await _context.userResult.InsertOneAsync(userResults);
-            }
-            else
-            {
-                double averageScore = userResultsEntry.AverageScore;
-                
-                List<double> scores = userResultsEntry.Scores;
-                
-
-                int numOfEntry = scores.Count;
-                double totalScore = numOfEntry * averageScore;
-                double updatedScore = totalScore + newScore;
-                updatedScore = updatedScore / (numOfEntry+1);
-                scores.Add(newScore);
-                var filter = Builders<UserResult>.Filter.Eq(x => x.UserId, userId);
-                filter = filter & (Builders<UserResult>.Filter.Eq(x => x.DomainName, domainName));
-                var update = Builders<UserResult>.Update.Set(x => x.AverageScore, updatedScore).Set(x => x.Scores, scores);
-                var result = await _context.userResult.UpdateOneAsync(filter, update);
-            }
->>>>>>> Stashed changes
->>>>>>> 2782a3d484696168b7b012dc02c08884b18ada15
         }
 
 
 
-<<<<<<< HEAD
         public async void UpdateUserResults(Quiz quiz)
         {
             int userId = quiz.UserId;
@@ -107,17 +54,13 @@ namespace Result.Services
                     DomainName = quiz.DomainName,
                     AverageScore = quiz.Score,
                     Scores = scores,
-
                 };
                 await _context.userResult.InsertOneAsync(userResults);
             }
             else
             {
                 double averageScore = userResultsEntry.AverageScore;
-
                 List<double> scores = userResultsEntry.Scores;
-
-
                 int numOfEntry = scores.Count;
                 double totalScore = numOfEntry * averageScore;
                 double updatedScore = totalScore + newScore;
@@ -129,8 +72,5 @@ namespace Result.Services
                 var result = await _context.userResult.UpdateOneAsync(filter, update);
             }
         }
-=======
-        
->>>>>>> 2782a3d484696168b7b012dc02c08884b18ada15
     }
 }
