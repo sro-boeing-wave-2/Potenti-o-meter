@@ -22,7 +22,7 @@ namespace Result.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostQuiz([FromBody] Quiz quiz)
+        public async Task<IActionResult> PostQuiz([FromBody] UserQuizDetail quiz)
         {
             if (!ModelState.IsValid)
             {
@@ -47,9 +47,24 @@ namespace Result.Controllers
             {
                 return NotFound();
             }
+            return Ok(userResult);
+        }
+
+        public async Task<IActionResult> LastTestUserDomainDetails([FromQuery] int userId, [FromQuery] string domainName)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var userResult = await _quizResultService.GetUserResults(userId, domainName);
+
+            if (userResult == null)
+            {
+                return NotFound();
+            }
 
             return Ok(userResult);
-
         }
         
     }

@@ -21,9 +21,9 @@ namespace ResultViewAPI.Testing
             return await Task.FromResult(UserResult);
 
         }
-        public async Task<Quiz> GetQuizEntry()
+        public async Task<UserQuizDetail> GetQuizEntry()
         {
-            var QuizEntry = new Quiz()
+            var QuizEntry = new UserQuizDetail()
             {
                 UserId = 10,
                 DomainName = "Java",

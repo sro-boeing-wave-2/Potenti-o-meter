@@ -18,8 +18,10 @@ namespace Result.Services
             _context = new QuizContext(settings);
         }
 
-        public async Task<Quiz> AddQuiz(Quiz quiz)
+        public async Task<UserQuizDetail> AddQuiz(UserQuizDetail quiz)
         {
+
+            quiz.Time = new DateTime();
             await _context.Quiz.InsertOneAsync(quiz);
 
             //Perform calculating tasks on the UserResults Collection
@@ -35,12 +37,22 @@ namespace Result.Services
         }
 
 
+        //public async Task<> GetLastTestUserDomainResults(int userId, string domainName)
+        //{
+
+        //}
+
+
+
+
         //Whenever a new Quiz is submitted by a user, the UserResult gets upadated
-        public async void UpdateUserResults(Quiz quiz)
+        public async void UpdateUserResults(UserQuizDetail quiz)
         {
             int userId = quiz.UserId;
-            double newScore = quiz.Score;
-            string domainName = quiz.DomainName;
+
+            //Calculate total score of this quiz
+            double newScore = calculateTotalScoreOfQuiz(quiz);
+            string domainName = quiz.Domain;
 
             // Check whether an entry with same User and domain already exists or not
             var userResultsEntry = await _context.userResult.Find(entryy => entryy.UserId.Equals(userId) && entryy.DomainName.Equals(domainName)).FirstOrDefaultAsync();
@@ -53,8 +65,8 @@ namespace Result.Services
                 UserResult userResults = new UserResult()
                 {
                     UserId = userId,
-                    DomainName = quiz.DomainName,
-                    AverageScore = quiz.Score,
+                    DomainName = quiz.Domain,
+                    AverageScore = newScore,
                     Scores = scores,
                 };
                 //Insert the newly found entry to the UserResult Collection
@@ -76,5 +88,26 @@ namespace Result.Services
                 var result = await _context.userResult.UpdateOneAsync(filter, update);
             }
         }
+
+
+        public double calculateTotalScoreOfQuiz(UserQuizDetail quizDetail)
+        {
+            List<QuestionAttempted> questionAttemptedList = quizDetail.QuestionsAttempted;
+            double score = 0;
+            double multiplyFactor = 1;
+            foreach(QuestionAttempted quest in questionAttemptedList)
+            {
+                if (quest.IsCorrect) score += quest.DifficultyLevel*multiplyFactor;   
+            }
+            return score;
+        }
+
+        public void calculateTagWiseResult(UserQuizDetail quizDetail)
+        {
+            List<QuestionAttempted> questionAttemptedList = quizDetail.QuestionsAttempted;
+
+        }
+
+
     }
 }

@@ -43,7 +43,7 @@ namespace ResultViewAPI.Testing
             // Arrange
             Mock<IQuizResultService> mockRepo = new Mock<IQuizResultService>();
             MockUserResult mockDbHelper = new MockUserResult();
-            Quiz entryQuiz = await mockDbHelper.GetQuizEntry();
+            UserQuizDetail entryQuiz = await mockDbHelper.GetQuizEntry();
             mockRepo.Setup(repo => repo.AddQuiz(entryQuiz)).Returns(mockDbHelper.GetQuizEntry());
             QuizResultController controller = new QuizResultController(mockRepo.Object);
 
@@ -52,7 +52,7 @@ namespace ResultViewAPI.Testing
             OkObjectResult objectResult = result as OkObjectResult;
 
             //Assert
-            Assert.Equal("Java", entryQuiz.DomainName);
+            Assert.Equal("Java", entryQuiz.Domain);
 
 
 
