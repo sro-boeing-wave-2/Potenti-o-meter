@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   title: User Login API
-  description: This API provides access to Insert, Update and Fetch data from User Database.
+  description: This API provides access to Insert, Update & Fetch data from User Database.
   version: v1.1.1
 definitions:
   User:
