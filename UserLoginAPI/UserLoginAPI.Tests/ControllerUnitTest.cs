@@ -17,7 +17,7 @@ namespace UserLoginAPI.Tests
         ControllerUnitTestHelper mockHelper = new ControllerUnitTestHelper();
 
         [Fact]
-        public async void TestGetUserByID()
+        public async void TestGetUserByID() 
         {
             Mock<IUsersControllerService> mockService = new Mock<IUsersControllerService>();
             mockService.Setup(service => service.GetUser(1)).Returns(mockHelper.GetTestResultData());

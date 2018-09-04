@@ -20,6 +20,9 @@ namespace UserLoginAPI.Controllers
     {
         private readonly IUsersControllerService _service;
 
+        private string globalToken;
+        //private string globalTok = HttpContext.Request.Cookies["UserLoginAPItoken"];
+
         public UsersController(IUsersControllerService service)
         {
             _service = service;
@@ -161,6 +164,7 @@ namespace UserLoginAPI.Controllers
                     Expires = DateTime.Now.AddHours(2)
                 };
                 HttpContext.Response.Cookies.Append("UserLoginAPItoken", tokenString, cookie);
+                globalToken = tokenString;
                 return Ok(new { Token = tokenString });
             }
         }
@@ -189,6 +193,16 @@ namespace UserLoginAPI.Controllers
         {
             HttpContext.Response.Cookies.Delete("UserLoginAPItoken");
             return Ok();
+        }
+
+        // POST: api/Users/Quiz
+        [HttpGet("Quiz")]
+        public IActionResult Quiz()
+        {
+            var token = HttpContext.Request.Cookies["UserLoginAPItoken"];
+            var userid = _service.GetUserIDfromToken(token);
+            return Ok(new { tokenstring = token,
+                            id = userid});
         }
 
         private bool UserExists(int id)

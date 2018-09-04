@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -142,6 +144,14 @@ namespace UserLoginAPI.Services
             return false;
         }
 
+        public string GetUserIDfromToken(string Token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var tokens = handler.ReadJwtToken(Token);
+            var userid = tokens.Claims.First(cl => cl.Type == "UserID").Value;
+            return userid;
+        }
+
     }
 
     public interface IUsersControllerService
@@ -157,5 +167,6 @@ namespace UserLoginAPI.Services
         bool EmailExists(string email);
         string HashPassword(string Password);
         bool EmailChanged(int id, string email);
+        string GetUserIDfromToken(string Token);
     }
 }
