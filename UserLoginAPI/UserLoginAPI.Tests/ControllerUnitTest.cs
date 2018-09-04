@@ -108,5 +108,21 @@ namespace UserLoginAPI.Tests
 
             Assert.Equal(200, objectResult.StatusCode);
         }
+
+        //[Fact]
+        //public void TestLogout()
+        //{
+        //    //User mockUser = await mockHelper.GetTestResultData();
+
+        //    Mock<IUsersControllerService> mockService = new Mock<IUsersControllerService>();
+        //    mockService.Setup(service => service.Lo(1)).Returns(mockHelper.GetTestResultData());
+        //    UsersController controller = new UsersController(mockService.Object);
+
+        //    var result = controller.Logout();
+        //    OkObjectResult objectResult = result as OkObjectResult;
+        //    User objectResultValue = objectResult.Value as User;
+
+        //    Assert.Equal(200, objectResult.StatusCode);
+        //}
     }
 }

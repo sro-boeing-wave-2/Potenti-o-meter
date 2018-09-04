@@ -66,7 +66,7 @@ namespace UserLoginAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserLoginAPIContext context)
         {
             if (env.IsDevelopment())
             {
@@ -80,6 +80,7 @@ namespace UserLoginAPI
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
+            context.Database.Migrate();
         }
     }
 }
