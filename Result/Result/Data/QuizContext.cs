@@ -23,7 +23,7 @@ namespace Result.Data
         {
             get
             {
-                return _database.GetCollection<Quiz>("Quiz");
+                return _database.GetCollection<Quiz>("Quiz"); //<Quiz> is the Document ,"Quiz" is the Collection in our QuizDb
             }
         }
 

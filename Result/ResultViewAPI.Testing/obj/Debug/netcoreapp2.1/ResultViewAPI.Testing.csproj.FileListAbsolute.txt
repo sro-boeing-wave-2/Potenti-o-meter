@@ -1,0 +1,17 @@
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\ResultViewAPI.Testing.deps.json
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\ResultViewAPI.Testing.runtimeconfig.json
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\ResultViewAPI.Testing.runtimeconfig.dev.json
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\ResultViewAPI.Testing.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\Result.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\Result.pdb
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.csprojAssemblyReference.cache
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.csproj.CoreCompileInputs.cache
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.AssemblyInfoInputs.cache
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.AssemblyInfo.cs
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.csproj.CopyComplete
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\bin\Debug\netcoreapp2.1\ResultViewAPI.Testing.pdb
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.dll
+D:\workspace\Potenti-o-meter\Result\ResultViewAPI.Testing\obj\Debug\netcoreapp2.1\ResultViewAPI.Testing.pdb

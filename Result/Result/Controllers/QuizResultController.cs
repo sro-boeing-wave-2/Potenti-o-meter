@@ -34,7 +34,7 @@ namespace Result.Controllers
 
         [HttpGet]
        
-        public async Task<IActionResult> UserResultForGivenQuizAndDomain([FromQuery] int userId = 0,[FromQuery] string domainName="")
+        public async Task<IActionResult> UserResultForGivenQuizAndDomain([FromQuery] int userId ,[FromQuery] string domainName)
         {
             if (!ModelState.IsValid)
             {
