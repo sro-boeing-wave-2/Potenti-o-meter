@@ -44,7 +44,7 @@ namespace UserLoginAPI.Services
             return user;
         }
 
-        public async Task<User> PutUser(int id, User user)
+        public async Task<User> PutUser(User user)
         {
             _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -149,7 +149,7 @@ namespace UserLoginAPI.Services
         IEnumerable<User> GetUserService();
         Task<User> GetUser(int id);
         Task<User> GetUserByEmail(string email);
-        Task<User> PutUser(int id, User user);
+        Task<User> PutUser(User user);
         Task<User> PostUser(User user);
         Task<User> DeleteUser(int id);
         Task<string> Login(string email, string password);

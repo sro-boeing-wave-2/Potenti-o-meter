@@ -97,7 +97,7 @@ namespace UserLoginAPI.Controllers
 
             try
             {
-                await _service.PutUser(id, user);
+                await _service.PutUser(user);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -156,8 +156,10 @@ namespace UserLoginAPI.Controllers
             }
             else
             {
-                CookieOptions cookie = new CookieOptions();
-                cookie.Expires = DateTime.Now.AddHours(2);
+                CookieOptions cookie = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddHours(2)
+                };
                 HttpContext.Response.Cookies.Append("UserLoginAPItoken", tokenString, cookie);
                 return Ok(new { Token = tokenString });
             }
@@ -179,6 +181,14 @@ namespace UserLoginAPI.Controllers
             }
 
             return Ok(user);
+        }
+
+        // POST: api/Users/Login
+        [HttpPost("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Response.Cookies.Delete("UserLoginAPItoken");
+            return Ok();
         }
 
         private bool UserExists(int id)
