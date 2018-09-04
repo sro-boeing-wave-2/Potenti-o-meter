@@ -76,22 +76,22 @@ namespace UserLoginAPI.Tests
             Assert.Equal(201, objectResult.StatusCode);
         }
 
-        [Fact]
-        public async void TestLogin()
-        {
-            User mockUser = await mockHelper.GetTestResultData();
-            Login mockLogin = await mockHelper.GetTestLoginData();
+        //[Fact]
+        //public async void TestLogin()
+        //{
+        //    User mockUser = await mockHelper.GetTestResultData();
+        //    Login mockLogin = await mockHelper.GetTestLoginData();
 
-            Mock<IUsersControllerService> mockService = new Mock<IUsersControllerService>();
-            mockService.Setup(service => service.Login(mockLogin.Email, mockLogin.Password)).Returns(mockHelper.GetTestLoginToken());
-            UsersController controller = new UsersController(mockService.Object);
+        //    Mock<IUsersControllerService> mockService = new Mock<IUsersControllerService>();
+        //    mockService.Setup(service => service.Login(mockLogin.Email, mockLogin.Password)).Returns(mockHelper.GetTestLoginToken());
+        //    UsersController controller = new UsersController(mockService.Object);
 
-            var result = await controller.Login(mockLogin);
-            OkObjectResult objectResult = result as OkObjectResult;
-            User objectResultValue = objectResult.Value as User;
+        //    var result = await controller.Login(mockLogin);
+        //    OkObjectResult objectResult = result as OkObjectResult;
+        //    User objectResultValue = objectResult.Value as User;
 
-            Assert.Equal(200, objectResult.StatusCode);
-        }
+        //    Assert.Equal(200, objectResult.StatusCode);
+        //}
 
         [Fact]
         public async void TestDeleteUser()
