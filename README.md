@@ -5,7 +5,7 @@ This branch will be used for Result Module.
 
 
 
-Response getting from QuizEngine Team:
+-Response getting from QuizEngine Team:
 
 public class UserQuizDetail
    {
@@ -23,4 +23,5 @@ public class UserQuizDetail
        string response
        bool isCorrect
        string[] conceptTags
+       string correctAnswer
    }
