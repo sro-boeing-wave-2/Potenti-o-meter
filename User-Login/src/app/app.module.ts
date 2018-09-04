@@ -12,6 +12,7 @@ import {HttpModule} from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { AppRoutingModule } from './app-routing-module';
+import { DashboardBodyComponent } from './dashboard-body/dashboard-body.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing-module';
     HomeComponent,
     UserSignUpComponent,
     DashboardComponent,
-    DashboardHeaderComponent
+    DashboardHeaderComponent,
+    DashboardBodyComponent
   ],
   entryComponents: [UserLoginComponent,UserSignUpComponent],
   imports: [
@@ -31,7 +33,9 @@ import { AppRoutingModule } from './app-routing-module';
     BrowserAnimationsModule,
     MatIconModule ,
     HttpModule,
-    
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
     MatToolbarModule,
     AppRoutingModule,
     MatMenuModule

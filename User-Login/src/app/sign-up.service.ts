@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { User } from './User';
 import { HttpHeaders } from '@angular/common/http';
-import { Login} from './Login'
+import { Login} from './Login';
+import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,18 @@ export class SignUpService {
   }
   USerLogIn(user: Login) {
     return this.http.post("https://localhost:44397/api/Users/Login", user);
+  }
+  UserLogOut(){
+    return this.http.post("https://localhost:44397/api/Users/Logout","");
+  }
+  GetDomain(){
+    type ArrayOfTypeDomain = Array<{name: string}>;
+    const arr: ArrayOfTypeDomain= [
+      {name: 'C#'},
+      {name : 'Java'},
+      {name: 'Algorithms'},
+      {name: 'Python'},
+  ];
+  return arr;
   }
 }
