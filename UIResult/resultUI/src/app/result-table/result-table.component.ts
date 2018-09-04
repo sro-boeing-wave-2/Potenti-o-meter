@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  question: string;
+  num: number;
+  actual: any;
+  ideal: any;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {num: 1, question: 'What dfcevf v.... e fe f', actual: 1.0079, ideal: 79},
+  {num: 2, question: 'Which bla bl......', actual: 4.0026, ideal: 79},
+  {num: 3, question: 'Why .....', actual: 'this', ideal: 'that'},
+  // {num: 4, question: 'Beryllium', actual: 9.0122, ideal: 79},
+  // {num: 5, question: 'Boron', actual: 10.811, ideal: 79},
+  // {num: 6, question: 'Carbon', actual: 12.0107, ideal: 79},
+  // {num: 7, question: 'Nitrogen', actual: 14.0067, ideal: 79},
+  // {num: 8, question: 'Oxygen', actual: 15.9994, ideal: 79},
+  // {num: 9, question: 'Fluorine', actual: 18.9984, ideal: 79},
+  // {num: 10, question: 'Neon', actual: 20.1797, ideal: 79},
 ];
 
 @Component({
@@ -35,7 +35,7 @@ export class ResultTableComponent implements OnInit {
   ngOnInit() {
 
   }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['num', 'question', 'actual', 'ideal'];
   dataSource = ELEMENT_DATA;
 }
 

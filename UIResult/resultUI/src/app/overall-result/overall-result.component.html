@@ -1,0 +1,10 @@
+<p>
+  User Id : {{_result.userId}}</p>
+<p>Domain Name : {{_result.domainName}}</p>
+<h2>Your Score: {{_result.scores[_result.scores.length-1]}}</h2>
+<p>Average Score : {{_result.averageScore}}</p>
+<div style="text-align:center">List of Scores :
+<div id="ScoresListContainer" *ngFor="let sc of _result.scores">
+  {{sc }}
+</div>
+</div>
