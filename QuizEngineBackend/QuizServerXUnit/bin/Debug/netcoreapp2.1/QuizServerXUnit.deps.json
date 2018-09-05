@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "2f91e3970992560d08fdbdcd23df8d4561fc1455"
+    "signature": "178d3c46140dc6023eb56183b466dd2d03992c12"
   },
   "compilationOptions": {},
   "targets": {
@@ -531,6 +531,7 @@
           "Microsoft.TestPlatform.TestHost": "15.7.0"
         }
       },
+      "Microsoft.Private.CoreFx.NETCoreApp/4.4.0-beta-25213-0": {},
       "Microsoft.TestPlatform.ObjectModel/15.7.0": {
         "dependencies": {
           "System.ComponentModel.EventBasedAsync": "4.0.11",
@@ -2175,6 +2176,7 @@
       "QuizServer/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.SignalR": "1.0.3",
+          "Microsoft.Private.CoreFx.NETCoreApp": "4.4.0-beta-25213-0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
         },
         "runtime": {
@@ -2468,6 +2470,13 @@
       "sha512": "sha512-1oc0SxLGsNDRzzYpMEKkRbb07IQGAZTHgiz0QY1XzwpPLX+GpGj6oZoeqqYe0+9kKy7B0CxtfV4OWipNG0ytng==",
       "path": "microsoft.net.test.sdk/15.7.0",
       "hashPath": "microsoft.net.test.sdk.15.7.0.nupkg.sha512"
+    },
+    "Microsoft.Private.CoreFx.NETCoreApp/4.4.0-beta-25213-0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qMAIFbuKWjrH9cAnuQfVfjeUuG02yJJnw9fhwNHCFMX676M7flD84wvIb+uf9OR2HOkyUOU9oQ+OIQs7VcazQQ==",
+      "path": "microsoft.private.corefx.netcoreapp/4.4.0-beta-25213-0",
+      "hashPath": "microsoft.private.corefx.netcoreapp.4.4.0-beta-25213-0.nupkg.sha512"
     },
     "Microsoft.TestPlatform.ObjectModel/15.7.0": {
       "type": "package",

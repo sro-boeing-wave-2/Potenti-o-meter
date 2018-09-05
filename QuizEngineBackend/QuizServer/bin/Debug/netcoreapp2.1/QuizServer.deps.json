@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "cec4fb268ba4a8ccf505fb2aa589e729d8cd1f71"
+    "signature": "441d248fa663bef4131dc24431a4fc26be7b12dc"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.SignalR": "1.0.3",
           "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.Private.CoreFx.NETCoreApp": "4.4.0-beta-25213-0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
         },
         "runtime": {
@@ -197,7 +198,6 @@
           "NETStandard.Library": "2.0.3"
         },
         "compile": {
-          "ref/netcoreapp2.1/Microsoft.CSharp.dll": {},
           "ref/netcoreapp2.1/Microsoft.VisualBasic.dll": {},
           "ref/netcoreapp2.1/Microsoft.Win32.Primitives.dll": {},
           "ref/netcoreapp2.1/System.AppContext.dll": {},
@@ -355,6 +355,15 @@
       },
       "Microsoft.NETCore.Platforms/2.1.0": {},
       "Microsoft.NETCore.Targets/2.1.0": {},
+      "Microsoft.Private.CoreFx.NETCoreApp/4.4.0-beta-25213-0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.1.0"
+        },
+        "compile": {
+          "ref/netcoreapp2.0/Microsoft.CSharp.dll": {},
+          "ref/netcoreapp2.0/System.ComponentModel.Composition.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
@@ -3608,6 +3617,13 @@
       "sha512": "sha512-etaYwrLZQUS+b3UWTpCnUggd6SQ/ZIkZ5pHnoR7+dIWt/wp2Rv3CvMKOZISsrt7FYCHKwCxfcepuuyEWkQxADg==",
       "path": "microsoft.netcore.targets/2.1.0",
       "hashPath": "microsoft.netcore.targets.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Private.CoreFx.NETCoreApp/4.4.0-beta-25213-0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qMAIFbuKWjrH9cAnuQfVfjeUuG02yJJnw9fhwNHCFMX676M7flD84wvIb+uf9OR2HOkyUOU9oQ+OIQs7VcazQQ==",
+      "path": "microsoft.private.corefx.netcoreapp/4.4.0-beta-25213-0",
+      "hashPath": "microsoft.private.corefx.netcoreapp.4.4.0-beta-25213-0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
       "type": "package",
