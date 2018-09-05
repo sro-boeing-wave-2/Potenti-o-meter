@@ -9,4 +9,4 @@ mono: none
 dotnet: 2.1
 script:
   - dotnet restore Result/
-  - dotnet test ResultViewAPI.Testing
+  - dotnet test Result/ResultViewAPI.Testing
