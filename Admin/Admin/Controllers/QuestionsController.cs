@@ -28,9 +28,10 @@ namespace Admin.Controllers
             return Ok(questions);
         }
         [HttpGet("domain")]
-        public async Task<List<String>> GetDomain()
+        public async Task<IActionResult> GetDomain()
         {
-            return await _questionService.GetAllDomain();
+            var domainlist = await _questionService.GetAllDomain();
+            return Ok(domainlist);
            
         }
 
