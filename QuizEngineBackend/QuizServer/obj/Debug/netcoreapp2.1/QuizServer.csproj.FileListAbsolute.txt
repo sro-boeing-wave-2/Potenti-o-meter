@@ -68,3 +68,17 @@ F:\Project\Week 2\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServe
 F:\Project\Week 2\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.RazorTargetAssemblyInfo.cache
 F:\Project\Week 2\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.dll
 F:\Project\Week 2\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.pdb
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\bin\Debug\netcoreapp2.1\QuizServer.deps.json
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\bin\Debug\netcoreapp2.1\QuizServer.runtimeconfig.json
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\bin\Debug\netcoreapp2.1\QuizServer.runtimeconfig.dev.json
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\bin\Debug\netcoreapp2.1\QuizServer.dll
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\bin\Debug\netcoreapp2.1\QuizServer.pdb
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.csprojAssemblyReference.cache
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.csproj.CoreCompileInputs.cache
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.RazorAssemblyInfo.cache
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.RazorAssemblyInfo.cs
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.AssemblyInfoInputs.cache
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.AssemblyInfo.cs
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.RazorTargetAssemblyInfo.cache
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.dll
+E:\workspace\Product_development\Potenti-o-meter\QuizEngineBackend\QuizServer\obj\Debug\netcoreapp2.1\QuizServer.pdb
