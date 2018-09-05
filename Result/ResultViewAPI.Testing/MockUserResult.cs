@@ -23,12 +23,12 @@ namespace ResultViewAPI.Testing
         }
         public async Task<UserQuizDetail> GetQuizEntry()
         {
+            QuestionAttempted qa = new QuestionAttempted();
             var QuizEntry = new UserQuizDetail()
             {
                 UserId = 10,
-                DomainName = "Java",
-                QuizId = 7,
-                Score = 50,
+                Domain = "Java",
+                //Score = 50,
 
             };
             return await Task.FromResult(QuizEntry);
