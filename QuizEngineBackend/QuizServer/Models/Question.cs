@@ -11,7 +11,8 @@ namespace QuizServer.Models
         public string QuestionText { get; set; }
         public List<string> Options { get; set; }
         public string QuestionType { get; set; }
-        public string[] ConceptTags { get; set; }
+        //public string[] ConceptTags { get; set; }
+        public string response { get; set; }
     }
 
     

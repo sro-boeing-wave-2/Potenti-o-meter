@@ -12225,11 +12225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Project\\Week 2\\QuizEngineBackend\\QuizServer\\QuizServer.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\PM\\Potenti-o-meter\\QuizEngineBackend\\QuizServer\\QuizServer.csproj",
       "projectName": "QuizServer",
-      "projectPath": "F:\\Project\\Week 2\\QuizEngineBackend\\QuizServer\\QuizServer.csproj",
+      "projectPath": "C:\\Users\\Admin\\Documents\\PM\\Potenti-o-meter\\QuizEngineBackend\\QuizServer\\QuizServer.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "F:\\Project\\Week 2\\QuizEngineBackend\\QuizServer\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\PM\\Potenti-o-meter\\QuizEngineBackend\\QuizServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

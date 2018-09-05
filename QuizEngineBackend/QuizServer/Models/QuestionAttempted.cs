@@ -12,6 +12,7 @@ namespace QuizServer.Models
             public string QuestionText { get; set; }
             public int difficultyLevel { get; set; }
             public string response { get; set; }
+            public string userResponse { get; set; }
             public bool isCorrect { get; set; }
             public string[] conceptTags { get; set; }
         

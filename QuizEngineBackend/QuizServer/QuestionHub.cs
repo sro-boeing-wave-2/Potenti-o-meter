@@ -4,14 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using QuizServer.Models;
-using QuizServer.C
-using Microsoft.AspNet.SignalR;
 namespace QuizServer
 {
     public class QuestionHub : Hub
     {
-        private readonly static ConnectionMapping<string> _connections =
-            new ConnectionMapping<string>();
+        private readonly static ConnectionMapping _connections =
+            new ConnectionMapping ();
 
 
         //public  Dictionary<int, Dictionary<string, List<string>>> dict = new Dictionary<int, Dictionary<string, List<string>>>();
@@ -117,10 +115,23 @@ namespace QuizServer
             Console.WriteLine("Client Connected");
             Console.WriteLine("count before is " + count);
             Console.WriteLine("count is " + count);
+            //string name = Context.User.Identity.Name;
 
+           // OnConnectionMapping
+
+           // _connections.Add(userId, Context.ConnectionId);
+
+            //return base.OnConnected();
+
+           // _connections.Add(userId, connectionId);
             //return GetNextQuestion(user1);
             return GetNextQuestion();
-
+            
+        }
+        public Task OnConnectionMapping(int userId)
+        {
+            _connections.Add(userId, Context.ConnectionId);
+            return  base.OnConnectedAsync() ;
         }
 
         public Task send(string response, string userId)
