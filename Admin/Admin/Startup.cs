@@ -40,6 +40,7 @@ namespace Admin
                 Options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 Options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
+            
             services.AddTransient<IQuestionServices, QuestionServices>();
 
         }

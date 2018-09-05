@@ -126,7 +126,10 @@ namespace Admin.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutQuestion([FromRoute] string id, [FromBody] dynamic question)
         {
-           
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var questionAsJsonString = JsonConvert.SerializeObject(question);
             string type = question.questionType;
             switch (type)
