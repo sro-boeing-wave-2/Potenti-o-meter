@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
@@ -199,6 +200,42 @@ namespace UserLoginAPI.Controllers
             var userid = _service.GetUserIDfromToken(token);
             return Ok(new { tokenstring = token,
                             id = userid});
+        }
+
+        // POST: api/Users/Email
+        [HttpPost("Email")]
+        public IActionResult Email([FromBody] Mail email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (EmailExists(email.email))
+            {
+                return BadRequest(error: "The emailid already exists");
+            }
+            MailMessage mail = new MailMessage();
+            mail.To.Add(email.email);
+            mail.From = new MailAddress("potentimeter1@gmail.com");
+            mail.Subject = "Adaptive Quiz Password Reset";
+            string Body = "Reset your password using below link";
+            mail.Body = Body;
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = new System.Net.NetworkCredential("potentimeter1@gmail.com", "9980958703"); // Enter seders User name and password
+            smtp.EnableSsl = true;
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate (object s,
+                System.Security.Cryptography.X509Certificates.X509Certificate certificate,
+                System.Security.Cryptography.X509Certificates.X509Chain chain,
+                System.Net.Security.SslPolicyErrors sslPolicyErrors)
+            {
+                return true;
+            };
+            smtp.Send(mail);
+            return Ok();
         }
 
         private bool UserExists(int id)
