@@ -36,7 +36,7 @@ namespace Admin
             //  )
             //  );
             services.AddCors(corsOptions => corsOptions.AddPolicy("AllowAccess", builder =>
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials()));
 
 
             services.Configure<Settings>(Options =>
