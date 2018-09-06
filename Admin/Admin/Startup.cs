@@ -59,6 +59,7 @@ namespace Admin
             {
                 app.UseHsts();
             }
+            app.UseCors("AllowAccess");
             app.UseStaticFiles();
             app.UseSwaggerUI(c =>
             {
@@ -67,7 +68,6 @@ namespace Admin
             
             app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseCors("AllowAccess");
         }
     }
 }

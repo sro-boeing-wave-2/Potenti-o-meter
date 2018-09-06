@@ -27,6 +27,7 @@ namespace Admin.Controllers
              var questions = await _questionService.GetAllQuestions();
             return Ok(questions);
         }
+
         [HttpGet("domain")]
         public async Task<IActionResult> GetDomain()
         {
