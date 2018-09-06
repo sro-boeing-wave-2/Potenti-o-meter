@@ -30,17 +30,20 @@ namespace Admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddCors(
-              options => options.AddPolicy("AllowAccess",
-              builder => builder.WithOrigins("http://localhost:4200")
-              )
-              );
+            //services.AddCors(
+            //  options => options.AddPolicy("AllowAccess",
+            //  builder => builder.WithOrigins("http://localhost:4200")
+            //  )
+            //  );
+            services.AddCors(corsOptions => corsOptions.AddPolicy("AllowAccess", builder =>
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+
+
             services.Configure<Settings>(Options =>
             {
                 Options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 Options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
-            
             services.AddTransient<IQuestionServices, QuestionServices>();
 
         }
