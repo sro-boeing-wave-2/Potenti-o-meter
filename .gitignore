@@ -5,3 +5,4 @@ UserLoginAPI/UserLoginAPI/bin/**
 UserLoginAPI/UserLoginAPI/obj/**
 UserLoginAPI/UserLoginAPI.Tests/bin/**
 UserLoginAPI/UserLoginAPI.Tests/obj/**
+.vs/**

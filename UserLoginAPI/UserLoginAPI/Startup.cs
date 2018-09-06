@@ -41,8 +41,8 @@ namespace UserLoginAPI
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
 
-                        ValidIssuer = "https://localhost:44397",
-                        ValidAudience = "https://localhost:44397",
+                        ValidIssuer = "http://localhost:5050",
+                        ValidAudience = "http://localhost:5050",
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@007"))
                     };
                 });
@@ -51,11 +51,13 @@ namespace UserLoginAPI
                 //    options.Cookie.Expiration = TimeSpan.FromHours(2);
                 //});
 
-            services.AddCors(
-            options => options.AddPolicy("AllowAccess",
-            builder => builder.WithOrigins("http://localhost:4200")
-            )
-            );
+            services.AddCors(o => o.AddPolicy("AllowSpecificOrigin", builder =>
+             builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowCredentials()
+                 )
+             );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -76,7 +78,7 @@ namespace UserLoginAPI
             {
                 app.UseHsts();
             }
-            app.UseCors("AllowAccess");
+            app.UseCors("AllowSpecificOrigin");
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
