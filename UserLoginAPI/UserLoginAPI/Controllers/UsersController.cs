@@ -184,7 +184,7 @@ namespace UserLoginAPI.Controllers
             return Ok(user);
         }
 
-        // POST: api/Users/Login
+        // POST: api/Users/Logout
         [HttpPost("Logout")]
         public IActionResult Logout()
         {

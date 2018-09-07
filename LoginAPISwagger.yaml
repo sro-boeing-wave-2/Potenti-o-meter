@@ -190,3 +190,14 @@ paths:
                 }
       404:
         description: Not Found
+
+ /users/Logout:
+  post:
+    summary: Deletes the cookie from browser and logs out the user.
+    responses:
+      200:
+        description: OK
+
+ /users/Quiz:
+ get:
+ 
