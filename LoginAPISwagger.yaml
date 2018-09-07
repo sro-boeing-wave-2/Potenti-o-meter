@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   title: User Login API
   description: This API provides access to Insert, Update & Fetch data from User Database.
-  version: v1.1.1
+  version: v2.0
 definitions:
   User:
     type: object
@@ -26,6 +26,13 @@ definitions:
       Contact:
         type: integer
         format: int64
+  Email:
+    type: object
+    required:
+      - Email
+    properties:
+      Email:
+        type: string
 paths:
  /users:
   get:
@@ -194,10 +201,45 @@ paths:
  /users/Logout:
   post:
     summary: Deletes the cookie from browser and logs out the user.
+    produces:
+    - application/json
     responses:
       200:
         description: OK
 
  /users/Quiz:
- get:
- 
+  get:
+    summary: Gets userid from cookie in browser
+    produces:
+    - application/json
+    responses:
+      200:
+        description: OK
+        examples:
+          application/json: |-
+              {
+                id: 1003
+              }
+
+ /users/Email:
+  post:
+    summary: Sends email to the user email id.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: array
+            items: 
+            $ref: '#/definitions/Email'
+    responses:
+      200:
+        description: OK
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/Email'
+      
+
+  
+
