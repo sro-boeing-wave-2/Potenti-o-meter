@@ -45,6 +45,10 @@ namespace Admin
                 Options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
             services.AddTransient<IQuestionServices, QuestionServices>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
 
         }
 
@@ -61,9 +65,10 @@ namespace Admin
             }
             app.UseCors("AllowAccess");
             app.UseStaticFiles();
+            app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             
             app.UseHttpsRedirection();

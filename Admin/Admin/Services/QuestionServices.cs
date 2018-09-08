@@ -19,7 +19,7 @@ namespace Admin.Services
         }
         public async Task<List<Question>> GetAllQuestions()
         {
-            return await _context.Questions.Find(x => true).ToListAsync();
+            return await _context.Questions.Find(x =>true).ToListAsync();
 
         }
 
@@ -36,6 +36,11 @@ namespace Admin.Services
         {
             return await _context.Questions.Find(x => x.Domain == domain).ToListAsync();
             
+        }
+        public async Task<List<Question>> GetAllQuestionById(string questionid)
+        {
+            return await _context.Questions.Find(x => x.QuestionId == questionid).ToListAsync();
+
         }
 
         public async Task<List<Question>> GetAllQuestionsByDifficultyLevel(int difficultylevel)

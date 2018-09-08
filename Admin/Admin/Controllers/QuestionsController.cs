@@ -39,8 +39,24 @@ namespace Admin.Controllers
         [HttpGet("domain/{domain}")]
         public async Task<IActionResult> GetQuestionsDomain([FromRoute] string domain)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             //return await _questionService.GetAllQuestionsByDomain(domain);
             var questions = await _questionService.GetAllQuestionsByDomain(domain);
+            return Ok(questions);
+
+        }
+        [HttpGet("id/{id}")]
+        public async Task<IActionResult> GetQuestionId([FromRoute] string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            //return await _questionService.GetAllQuestionsByDomain(domain);
+            var questions = await _questionService.GetAllQuestionById(id);
             return Ok(questions);
 
         }
@@ -48,6 +64,10 @@ namespace Admin.Controllers
         [HttpGet("difficultylevel/{difficultylevel}")]
         public async Task<IActionResult> GetQuestionsDomain([FromRoute] int difficultylevel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var questions= await _questionService.GetAllQuestionsByDifficultyLevel(difficultylevel);
             return Ok(questions);
 
