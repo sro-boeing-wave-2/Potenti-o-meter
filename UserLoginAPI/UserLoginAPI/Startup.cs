@@ -64,7 +64,7 @@ namespace UserLoginAPI
             services.AddScoped<IUsersControllerService, UsersControllerService>();
 
             services.AddDbContext<UserLoginAPIContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("UserLoginAPIContext"), dbOptions => dbOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null)));
+                    options.UseSqlServer(Configuration.GetConnectionString("UserLoginAPIContext"), dbOptions => dbOptions.EnableRetryOnFailure(maxRetryCount: 50, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
