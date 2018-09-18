@@ -112,7 +112,7 @@ namespace UserLoginAPI.Services
                 return null;
             }
         }
-
+        
         public bool UserExists(int id)
         {
             return _context.User.Any(e => e.UserID == id);
@@ -152,6 +152,14 @@ namespace UserLoginAPI.Services
             return userid;
         }
 
+        public string GetFirstNamefromToken(string Token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var tokens = handler.ReadJwtToken(Token);
+            var firstname = tokens.Claims.First(cl => cl.Type == "FirstName").Value;
+            return firstname;
+        }
+
     }
 
     public interface IUsersControllerService
@@ -168,5 +176,6 @@ namespace UserLoginAPI.Services
         string HashPassword(string Password);
         bool EmailChanged(int id, string email);
         string GetUserIDfromToken(string Token);
+        string GetFirstNamefromToken(string Token);
     }
 }

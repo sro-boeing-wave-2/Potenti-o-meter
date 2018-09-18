@@ -192,7 +192,7 @@ namespace UserLoginAPI.Controllers
             return Ok();
         }
 
-        // POST: api/Users/Quiz
+        // GET: api/Users/Quiz
         [HttpGet("Quiz")]
         public IActionResult Quiz()
         {
@@ -200,6 +200,19 @@ namespace UserLoginAPI.Controllers
             var userid = _service.GetUserIDfromToken(token);
             return Ok(new { tokenstring = token,
                             id = userid});
+        }
+
+        // GET: api/Users/FirstName
+        [HttpGet("FirstName")]
+        public IActionResult FirstName()
+        {
+            var token = HttpContext.Request.Cookies["UserLoginAPItoken"];
+            var firstname = _service.GetFirstNamefromToken(token);
+            return Ok(new
+            {
+                tokenstring = token,
+                id = firstname
+            });
         }
 
         // POST: api/Users/Email
