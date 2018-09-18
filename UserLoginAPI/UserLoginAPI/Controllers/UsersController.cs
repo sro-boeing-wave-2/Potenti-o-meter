@@ -211,7 +211,7 @@ namespace UserLoginAPI.Controllers
             return Ok(new
             {
                 tokenstring = token,
-                id = firstname
+                name = firstname
             });
         }
 
